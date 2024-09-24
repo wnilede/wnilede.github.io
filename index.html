@@ -1,1 +1,33 @@
-Hello World!
+<!DOCTYPE html lang="sv">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Välj saker</title>
+</head>
+<body>
+  WNiledes github pages hemsida!
+  Gammalt exempel:
+	<div id="uppmaning"></div>
+	<input type="text" id="svar">
+	<button type="button" id="knapp" onclick="choose(document.getElementById('svar').value)">SUBMIT</button>
+	<script>
+		let alternatives = ["Våfflor", "Pannkakor", "Godis", "Frukt", "Tv-serier", "Datorspel", "Utlandsresor", "Skönliteratur", "Sporter", "Matematik", "Sjukvård", "Fred", "Demokrati"];
+		let position = 0;
+		let currentBest = ""
+		function choose(svar) {
+			console.log(svar);
+			currentBest = svar;
+			position++;
+			if (position >= alternatives.length) {
+				document.getElementById('uppmaning').innerHTML = "Ni valde " + currentBest + " över allt annat";
+				document.getElementById('svar').remove();
+				document.getElementById('knapp').remove();
+			}
+			else {
+				document.getElementById('uppmaning').innerHTML = currentBest + " eller " + alternatives[position];
+			}
+		}
+		choose(alternatives[0]);
+	</script>
+</body>
+</html>
